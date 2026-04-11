@@ -1,16 +1,66 @@
-# React + Vite
+# 🏀 Flappy Dunk
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A vibrant, addictive arcade-style basketball game built with **React** and **Vite**. Tap to flap, avoid the floor, and dunk through hoops to score points and collect stars!
 
-Currently, two official plugins are available:
+![Flappy Dunk Favicon](/public/favicon.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Key Features
 
-## React Compiler
+- **Dynamic Gameplay**: Smooth physics-based movement and satisfying dunk mechanics.
+- **Themed Hoops**: Play through various levels with uniquely styled hoops including **Heart**, **Kite**, and **Kitty** themes.
+- **Star Collection**: Gather stars during gameplay to unlock new rewards (coming soon).
+- **Responsive Design**: Optimized for both desktop and mobile play.
+- **High Performance**: Built with Vite for lightning-fast development and optimized production builds.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎮 How to Play
 
-## Expanding the ESLint configuration
+1. **Tap or Click** to flap your winged basketball upwards.
+2. **Navigate** through the hoops without hitting the floor.
+3. **Dunk** accurately to keep your streak alive and earn higher scores.
+4. **Collect Stars** scattered throughout the level for bonus points.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **Frontend**: React 19
+- **Build Tool**: Vite
+- **Routing**: React Router 7
+- **Styling**: Vanilla CSS with modern aesthetics
+- **Deployment**: Configured for Vercel with optimized caching and SPF support.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/naitik09090/Flappy-Dunk.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd flappy-dunk
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📦 Deployment
+
+The project is pre-configured for deployment on **Vercel**. 
+
+- Includes a `vercel.json` for SPA routing.
+- CORS and Content Security Policy headers enabled for iframe integration.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
