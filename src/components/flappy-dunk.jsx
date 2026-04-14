@@ -487,7 +487,9 @@ function StartScreen({ bestScore, selectedSkin, onSkinSelect, onStart, tintedBal
                         {/* We always render the base image as a stable LCP candidate */}
                         <img
                             src={ballAsset}
-                            alt="Flappy Dunk"
+                            alt="Flappy Dunk Ball"
+                            loading="eager"
+                            fetchpriority="high"
                             style={{
                                 height: "auto",
                                 width: "180px",
@@ -495,8 +497,9 @@ function StartScreen({ bestScore, selectedSkin, onSkinSelect, onStart, tintedBal
                                 marginBottom: 0,
                                 paddingTop: 0,
                                 position: tintedBalls[selectedSkin] ? 'absolute' : 'relative',
-                                opacity: tintedBalls[selectedSkin] ? 0 : 1,
-                                zIndex: 1
+                                opacity: 1,
+                                zIndex: 1,
+                                pointerEvents: 'none'
                             }}
                         />
                         {tintedBalls[selectedSkin] && (
@@ -510,7 +513,8 @@ function StartScreen({ bestScore, selectedSkin, onSkinSelect, onStart, tintedBal
                                     maxWidth: '45vw',
                                     paddingTop: 0,
                                     position: 'relative',
-                                    zIndex: 2
+                                    zIndex: 2,
+                                    display: 'block'
                                 }}
                             />
                         )}
@@ -518,7 +522,7 @@ function StartScreen({ bestScore, selectedSkin, onSkinSelect, onStart, tintedBal
                 </div>
 
                 <div className="hub-header">
-                    <div className="logo-title">FLAPPY DUNK</div>
+                    <h1 className="logo-title">FLAPPY DUNK</h1>
                     <div className="logo-subtitle">Basketball Edition</div>
 
                     {bestScore > 0 && (
