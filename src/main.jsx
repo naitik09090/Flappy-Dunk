@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// import './index.css' // Inlined in index.html for performance
+import './index.css' // Inlined in index.html for performance
 import App from './App.jsx'
 
 const router = createBrowserRouter([
