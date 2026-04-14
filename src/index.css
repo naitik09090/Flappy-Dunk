@@ -46,8 +46,8 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 600px;
-  /* Ensure a minimum logical height */
+  height: 100svh;
+  /* Use dynamic viewport height for mobile browsers */
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -355,21 +355,68 @@ body {
 
 .glass-hub {
   background: transparent;
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(12px);
   border-radius: 48px;
-  padding: 60px 40px;
-  /* Increased vertical padding */
+  padding: 3vh 20px;
   width: 100%;
+  max-width: 440px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 45px;
-  /* Increased gap */
-  margin-bottom: 25px;
+  gap: 2.5vh;
+  margin-bottom: 2vh;
   position: relative;
   z-index: 2;
   animation: hubSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Vertical Responsiveness for short screens */
+@media (max-height: 750px) {
+  .start-screen {
+    padding: 10px;
+    justify-content: space-evenly;
+  }
+  
+  .glass-hub {
+    padding: 1.5vh 10px;
+    gap: 1vh;
+    margin-bottom: 0.5vh;
+  }
+  
+  .logo-title {
+    font-size: clamp(1.8rem, 5vh, 2.22rem) !important;
+  }
+  
+  .game-logo {
+     transform: scale(0.7) !important;
+     margin-bottom: 0 !important;
+  }
+  
+  .best-score-card {
+    padding: 4px 16px;
+    margin-bottom: 4px;
+  }
+  
+  .start-btn {
+    padding: 8px 20px;
+    margin-bottom: 4px;
+    font-size: 0.8rem !important;
+  }
+
+  .how-to-play {
+    margin-top: 5px;
+    transform: scale(0.75) translateY(-20px);
+  }
+}
+
+/* Specific fix for height < 650px */
+@media (max-height: 650px) {
+  .logo-subtitle { display: none !important; }
+  .best-score-card { padding: 2px 12px; margin-bottom: 2px; }
+  .glass-hub { gap: 0.8vh; }
+  .how-to-play { transform: scale(0.65) translateY(-40px); }
+  .logo-title { font-size: 1.6rem !important; margin: 0 !important; }
 }
 
 @media (max-width: 480px) {
