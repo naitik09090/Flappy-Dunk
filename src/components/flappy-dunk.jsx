@@ -4,8 +4,8 @@
 // =====================================================
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import ballAsset from '../assets/Ball_Images/flappy_dunk_ball.png';
-import hoopAsset from '../assets/Ball_Images/hoop_top.png';
+import ballAsset from '../assets/Ball_Images/flappy_dunk_ball.webp';
+import hoopAsset from '../assets/Ball_Images/hoop_top.webp';
 import ballAsset2 from '../assets/Ball_Images/flappy_dunk_ball.svg';
 
 import heartAsset from '../assets/Heart_Images/flappy_dunk_heart.svg';
