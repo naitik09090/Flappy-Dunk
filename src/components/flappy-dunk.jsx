@@ -6,16 +6,15 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import ballAsset from '../assets/Ball_Images/flappy_dunk_ball.webp';
 import hoopAsset from '../assets/Ball_Images/hoop_top.webp';
-import ballAsset2 from '../assets/Ball_Images/flappy_dunk_ball.svg';
 
-import heartAsset from '../assets/Heart_Images/flappy_dunk_heart.svg';
-import heartHoopAsset from '../assets/Heart_Images/flappy_dunk_heart_hoop.svg';
+import heartAsset from '../assets/Heart_Images/flappy_dunk_heart.webp';
+import heartHoopAsset from '../assets/Heart_Images/flappy_dunk_heart_hoop.webp';
 
-import kiteAsset from '../assets/Kite_Images/flappy_dunk_kite_ball.svg';
-import kiteHoopAsset from '../assets/Kite_Images/flappy_dunk_kite_hoops4.svg';
+import kiteAsset from '../assets/Kite_Images/flappy_dunk_kite_ball.webp';
+import kiteHoopAsset from '../assets/Kite_Images/flappy_dunk_kite_hoops4.webp';
 
-import kittyAsset from '../assets/Kitty_Images/flappy_dunk_kitty.svg';
-import kittyHoopAsset from '../assets/Kitty_Images/flappy_dunk_kitty_hoop.svg';
+import kittyAsset from '../assets/Kitty_Images/flappy_dunk_kitty.webp';
+import kittyHoopAsset from '../assets/Kitty_Images/flappy_dunk_kitty_hoop.webp';
 
 import {
     LEVELS,
@@ -485,10 +484,35 @@ function StartScreen({ bestScore, selectedSkin, onSkinSelect, onStart, tintedBal
             <div className="glass-hub">
                 <div className="game-logo" style={{ animation: 'logoFloat 4s ease-in-out infinite', display: showSkins ? 'none' : 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div className="logo-basketball">
-                        {tintedBalls[selectedSkin] ? (
-                            <canvas ref={canvasRef} width={180} height={180} style={{ width: '180px', height: 'auto', maxWidth: '45vw', paddingTop: 0 }} />
-                        ) : (
-                            <img src={ballAsset} alt="" style={{ height: "auto", width: "180px", maxWidth: "45vw", marginBottom: 0, paddingTop: 0 }} />
+                        {/* We always render the base image as a stable LCP candidate */}
+                        <img
+                            src={ballAsset}
+                            alt="Flappy Dunk"
+                            style={{
+                                height: "auto",
+                                width: "180px",
+                                maxWidth: "45vw",
+                                marginBottom: 0,
+                                paddingTop: 0,
+                                position: tintedBalls[selectedSkin] ? 'absolute' : 'relative',
+                                opacity: tintedBalls[selectedSkin] ? 0 : 1,
+                                zIndex: 1
+                            }}
+                        />
+                        {tintedBalls[selectedSkin] && (
+                            <canvas
+                                ref={canvasRef}
+                                width={180}
+                                height={180}
+                                style={{
+                                    width: '180px',
+                                    height: 'auto',
+                                    maxWidth: '45vw',
+                                    paddingTop: 0,
+                                    position: 'relative',
+                                    zIndex: 2
+                                }}
+                            />
                         )}
                     </div>
                 </div>
@@ -717,7 +741,7 @@ function FlappyDunk() {
     // Asset Loading
     const ballImg = useMemo(() => {
         const img = new Image();
-        img.src = ballAsset2;
+        img.src = ballAsset; // Use optimized WebP
         return img;
     }, []);
 
